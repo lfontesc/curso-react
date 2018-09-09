@@ -12,13 +12,12 @@ import TabContent from '../common/tab/tabContent'
 import { selectTab,showTabs } from '../common/tab/tabActions'
 import List from './billingCycleList'
 import Form from './billingCycleForm'
-import { create, update, remove } from './billingCycleActions'
+import { create, update, remove, init } from './billingCycleActions'
 
 class BillingCycle extends Component {
   
   componentWillMount(){
-    this.props.selectTab('tabList')
-    this.props.showTabs('tabList','tabCreate')
+  this.props.init()
   }
 
 
@@ -60,6 +59,6 @@ class BillingCycle extends Component {
 }
 //const mapStateToProps = state => ({tab: state.tab})
 const mapDispatchToProps = dispatch => bindActionCreators({
-  selectTab, showTabs, create, update, remove
+ create, update, remove, init
 }, dispatch)
 export default connect(null, mapDispatchToProps)(BillingCycle)
